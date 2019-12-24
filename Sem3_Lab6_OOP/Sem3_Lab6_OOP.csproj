@@ -46,6 +46,7 @@
     <Compile Include="Account.cs" />
     <Compile Include="AccountAction.cs" />
     <Compile Include="AccountFactory.cs" />
+    <Compile Include="Builder.cs" />
     <Compile Include="ChainOfResponsibility.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ClientBuilder.cs" />

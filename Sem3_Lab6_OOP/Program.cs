@@ -1,6 +1,7 @@
 ﻿using System;
 using Lab6.Accounts;
 using Lab6.Accounts.Requests;
+using Lab6.Client;
 
 namespace Lab6
 {
@@ -10,10 +11,10 @@ namespace Lab6
         static void Main(string[] args)
         {
             var client = Client.Client.Build()
-                .SetFirstName("Александр")
-                .SetLastName("Рофлов")
-                .SetAddress("Улица Денежная")
-                .SetDocsInfo("1337 228228")
+                .SetFirstName("FistName")
+                .SetSecondName("Second Name")
+                .SetAddress("Street Name")
+                .SetDocsInfo("Четырнадацать две восьмерочки:)")
                 .Spawn();
             Console.WriteLine(client.FirstName);
 

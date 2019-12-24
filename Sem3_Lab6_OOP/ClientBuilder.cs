@@ -2,39 +2,38 @@
 
 namespace Lab6.Client
 {
-    public class ClientBuilder
+    public class ClientBuilder : Builder
     {
         private Client _client = new Client();
 
         private bool[] _requiredFieldsAreSet = new[] { false, false };
 
-        public ClientBuilder SetFirstName(string name)
+        public override ClientBuilder SetFirstName(string name)
         {
-            SetProp("FirstName", name);
-            _requiredFieldsAreSet[0] = true;
+            _client.SetFN(name);
+            return this;
+        }
+        public override ClientBuilder SetSecondName(string name)
+        {
+            _client.SetSN(name);
+            return this;
+        }
+        public override ClientBuilder SetAddress(string name)
+        {
+            _client.SetAd(name);
+
+            return this;
+        }
+        public override ClientBuilder SetDocsInfo(string name)
+        {
+            _client.SetDoc(name);
             return this;
         }
 
-        public ClientBuilder SetLastName(string name)
-        {
-            SetProp("LastName", name);
-            _requiredFieldsAreSet[1] = true;
-            return this;
-        }
 
-        public ClientBuilder SetAddress(string name)
-        {
-            SetProp("Address", name);
-            return this;
-        }
 
-        public ClientBuilder SetDocsInfo(string name)
-        {
-            SetProp("DocsInfo", name);
-            return this;
-        }
 
-        public Client Spawn()
+        public override Client Spawn()
         {
             if (_requiredFieldsAreSet[0] == false && _requiredFieldsAreSet[1] == false)
             {
@@ -44,9 +43,6 @@ namespace Lab6.Client
             return _client;
         }
 
-        private void SetProp<T>(string name, T value)
-        {
-            _client.GetType().GetField(name).SetValue(_client, value);
-        }
-    }
+        
+    }   
 }
